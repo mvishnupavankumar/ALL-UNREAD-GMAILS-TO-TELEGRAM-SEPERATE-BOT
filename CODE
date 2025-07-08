@@ -1,0 +1,799 @@
+{
+  "name": "ALL UNREAD GMAILS TO TELEGRAM SEPERATE BOT",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "getAll",
+        "simple": false,
+        "filters": {
+          "q": "is:unread -in:trash -in:spam"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1140,
+        0
+      ],
+      "id": "9be4a96e-1cb4-4b2a-8d39-f3b71d7d193f",
+      "name": " Gmail 1",
+      "webhookId": "YOUR_WEBHOOK_URL",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "simple": false,
+        "filters": {
+          "q": "is:unread -in:trash -in:spam"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1160,
+        480
+      ],
+      "id": "39105dc9-1daf-4c49-b324-9651d4bc4dd9",
+      "name": "Gmail 4",
+      "webhookId": "YOUR_WEBHOOK_URL",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "simple": false,
+        "filters": {
+          "q": "is:unread -in:trash -in:spam"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1140,
+        180
+      ],
+      "id": "160717f2-b9a9-43d1-8f2f-2090c9ca90db",
+      "name": " Gmail 2",
+      "webhookId": "YOUR_WEBHOOK_URL",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "simple": false,
+        "filters": {
+          "q": "is:unread -in:trash -in:spam"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1140,
+        320
+      ],
+      "id": "95881411-96ff-4017-a95e-13fd39748e94",
+      "name": "Gmail 3",
+      "webhookId": "YOUR_WEBHOOK_URL",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://gmail.googleapis.com/gmail/v1/users/me/messages?q=is:unread",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "gmailOAuth2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "014d6877-a5a3-4072-a975-7d3818981545",
+      "name": "COUNTS NO.OF GMAILS",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://gmail.googleapis.com/gmail/v1/users/me/messages?q=is:unread",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "gmailOAuth2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -20,
+        200
+      ],
+      "id": "cd0dd2ed-b095-4352-bcd9-6234d709f131",
+      "name": " COUNTS NO.OF GMAILS",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://gmail.googleapis.com/gmail/v1/users/me/messages?q=is:unread",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "gmailOAuth2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -40,
+        360
+      ],
+      "id": "36bad874-3b99-4243-aa90-955153432dfd",
+      "name": " COUNTS NO.OF GMAILS1",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://gmail.googleapis.com/gmail/v1/users/me/messages?q=is:unread",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "gmailOAuth2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -60,
+        540
+      ],
+      "id": "c0030fc6-7dec-46eb-b5e1-0e42d19ecb08",
+      "name": " COUNTS NO.OF GMAILS2",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "REPLACE_ME",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "numberInputs": 4
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        220,
+        240
+      ],
+      "id": "ebbefbe4-5150-4a40-8957-caa2a76e23b8",
+      "name": " MERGE COUNT"
+    },
+    {
+      "parameters": {
+        "jsCode": " let total = 0;\n\nfor (const item of $items()) {\n  if (item.json.resultSizeEstimate && typeof item.json.resultSizeEstimate === 'number') {\n    total += item.json.resultSizeEstimate;\n  }\n}\n\nreturn [{\n  json: {\n    hasMail: total > 0,\n    count: total,\n    message: total === 0\n      ? `📭 No unread emails in any Gmail account as of ${new Date().toLocaleString(\"en-IN\", { timeZone: \"Asia/Kolkata\" })}`\n      : `📬 Total unread emails: ${total}`\n  }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        380,
+        280
+      ],
+      "id": "7b797b73-afc2-4981-b03d-ff294c23559b",
+      "name": "SENDS COUNT NUMBER"
+    },
+    {
+      "parameters": {
+        "jsCode": " if ($json.hasMail === true) {\n  return [{\n    json: {\n      path: 'gmail'\n    }\n  }];\n} else {\n  return [{\n    json: {\n      path: 'fallback',\n      message: $json.message\n    }\n  }];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        640,
+        280
+      ],
+      "id": "83a96360-fdbf-4ff5-b785-73e42bf4a382",
+      "name": " SENDS MESSAGE BADEG ON COUNT "
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.path }}",
+                    "rightValue": "gmail",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "7fc4a82c-ade2-4351-a054-d3f15357eb85"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "b0942ba0-e7b0-4f4f-85ef-8ed4e192a2de",
+                    "leftValue": "={{ $json.path }}",
+                    "rightValue": "fallback",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        880,
+        260
+      ],
+      "id": "3816fbb8-f420-4ed3-985b-e9ff80c3aa88",
+      "name": " SWITCHES BASED ON GMAILS ARE THERE OR NOT"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ddd6e25b-9235-4199-9a23-72a743b48443",
+              "name": "TO",
+              "value": "= {{ $json.headers.to }}",
+              "type": "string"
+            },
+            {
+              "id": "55d7132a-9ea8-4247-9c59-f82db32553ec",
+              "name": "FROM",
+              "value": "= {{ $json.headers.from }}",
+              "type": "string"
+            },
+            {
+              "id": "eb1186ae-9d96-466a-b4da-0e6510147393",
+              "name": "SUBJECT",
+              "value": "= {{ $json.headers.subject }}",
+              "type": "string"
+            },
+            {
+              "id": "8b362900-7575-4f7c-a0a6-40b9a0d765b8",
+              "name": "DATE",
+              "value": "={{ $json.headers.date }}",
+              "type": "string"
+            },
+            {
+              "id": "c1d96983-4310-46d0-9d81-a2ba163faeb5",
+              "name": "CONTENT",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "id": "54ed0ca6-ef93-4dc1-894c-ac90b21729eb",
+              "name": "LINK",
+              "value": "=https://mail.google.com/mail/u/0/#inbox/ ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1440,
+        20
+      ],
+      "id": "0074dee7-2147-4fad-afa8-4ab26dc165fc",
+      "name": " EDITS GMAILS"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ddd6e25b-9235-4199-9a23-72a743b48443",
+              "name": "TO",
+              "value": "= {{ $json.headers.to }}",
+              "type": "string"
+            },
+            {
+              "id": "55d7132a-9ea8-4247-9c59-f82db32553ec",
+              "name": "FROM",
+              "value": "= {{ $json.headers.from }}",
+              "type": "string"
+            },
+            {
+              "id": "eb1186ae-9d96-466a-b4da-0e6510147393",
+              "name": "SUBJECT",
+              "value": "= {{ $json.headers.subject }}",
+              "type": "string"
+            },
+            {
+              "id": "8b362900-7575-4f7c-a0a6-40b9a0d765b8",
+              "name": "DATE",
+              "value": "={{ $json.headers.date }}",
+              "type": "string"
+            },
+            {
+              "id": "54ed0ca6-ef93-4dc1-894c-ac90b21729eb",
+              "name": "LINK",
+              "value": "=https://mail.google.com/mail/u/1/#inbox/ ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1460,
+        380
+      ],
+      "id": "825f9f3d-1082-49ab-a564-9219bb787328",
+      "name": " EDITS GMAILS1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ddd6e25b-9235-4199-9a23-72a743b48443",
+              "name": "TO",
+              "value": "= {{ $json.headers.to }}",
+              "type": "string"
+            },
+            {
+              "id": "55d7132a-9ea8-4247-9c59-f82db32553ec",
+              "name": "FROM",
+              "value": "= {{ $json.headers.from }}",
+              "type": "string"
+            },
+            {
+              "id": "eb1186ae-9d96-466a-b4da-0e6510147393",
+              "name": "SUBJECT",
+              "value": "= {{ $json.headers.subject }}",
+              "type": "string"
+            },
+            {
+              "id": "8b362900-7575-4f7c-a0a6-40b9a0d765b8",
+              "name": "DATE",
+              "value": "={{ $json.headers.date }}",
+              "type": "string"
+            },
+            {
+              "id": "54ed0ca6-ef93-4dc1-894c-ac90b21729eb",
+              "name": "LINK",
+              "value": "=https://mail.google.com/mail/u/3/#inbox/ ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1460,
+        560
+      ],
+      "id": "767a2a2c-e586-4abf-953f-b6c70ea75661",
+      "name": " EDITS GMAILS2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ddd6e25b-9235-4199-9a23-72a743b48443",
+              "name": "TO",
+              "value": "= {{ $json.headers.to }}",
+              "type": "string"
+            },
+            {
+              "id": "55d7132a-9ea8-4247-9c59-f82db32553ec",
+              "name": "FROM",
+              "value": "= {{ $json.headers.from }}",
+              "type": "string"
+            },
+            {
+              "id": "eb1186ae-9d96-466a-b4da-0e6510147393",
+              "name": "SUBJECT",
+              "value": "= {{ $json.headers.subject }}",
+              "type": "string"
+            },
+            {
+              "id": "8b362900-7575-4f7c-a0a6-40b9a0d765b8",
+              "name": "DATE",
+              "value": "={{ $json.headers.date }}",
+              "type": "string"
+            },
+            {
+              "id": "54ed0ca6-ef93-4dc1-894c-ac90b21729eb",
+              "name": "LINK",
+              "value": "=https://mail.google.com/mail/u/2/#inbox/ ",
+              "type": "string"
+            },
+            {
+              "id": "d6125851-86b0-45c3-9df0-4298d76a2624",
+              "name": "CONTENT",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1440,
+        200
+      ],
+      "id": "8ade6b43-4a30-45a1-8387-ce24897576d3",
+      "name": " EDITS GMAILS3"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -520,
+        260
+      ],
+      "id": "3bb5b8ad-3b24-4fbc-9a6e-40aef92781a1",
+      "name": "Telegram Trigger",
+      "webhookId": "YOUR_WEBHOOK_URL",
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_ME",
+          "name": " EMAIL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "YOUR_TELEGRAM_CHAT_ID",
+        "text": "=TO:\n{{ $json.TO }}\n \nFROM:\n{{ $json.FROM }}\n\nSUBJECT:\n{{ $json.SUBJECT }}\nCONTENT:\n\n\nLINK:\n{{ $json.LINK }}\n\n\nDATE:\n{{ $json.DATE }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2100,
+        200
+      ],
+      "id": "aea51142-74a5-4338-ab27-eb8dc5a70d57",
+      "name": " SEND ALL GMAILS",
+      "webhookId": "YOUR_WEBHOOK_URL",
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_ME",
+          "name": " EMAIL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "YOUR_TELEGRAM_CHAT_ID",
+        "text": "NO UNREAD GMAILS",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1200,
+        680
+      ],
+      "id": "db6f1d1d-4c0b-4150-9cf1-4d0f31549c80",
+      "name": " SEND NO GMAILS MESSAGE",
+      "webhookId": "YOUR_WEBHOOK_URL",
+      "credentials": {
+        "telegramApi": {
+          "id": "REPLACE_ME",
+          "name": " EMAIL"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    " Gmail 1": {
+      "main": [
+        [
+          {
+            "node": " EDITS GMAILS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " Gmail 2": {
+      "main": [
+        [
+          {
+            "node": " EDITS GMAILS3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail 3": {
+      "main": [
+        [
+          {
+            "node": " EDITS GMAILS1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail 4": {
+      "main": [
+        [
+          {
+            "node": " EDITS GMAILS2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "COUNTS NO.OF GMAILS": {
+      "main": [
+        [
+          {
+            "node": " MERGE COUNT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " COUNTS NO.OF GMAILS": {
+      "main": [
+        [
+          {
+            "node": " MERGE COUNT",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    " COUNTS NO.OF GMAILS1": {
+      "main": [
+        [
+          {
+            "node": " MERGE COUNT",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    " COUNTS NO.OF GMAILS2": {
+      "main": [
+        [
+          {
+            "node": " MERGE COUNT",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    " MERGE COUNT": {
+      "main": [
+        [
+          {
+            "node": "SENDS COUNT NUMBER",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SENDS COUNT NUMBER": {
+      "main": [
+        [
+          {
+            "node": " SENDS MESSAGE BADEG ON COUNT ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " SENDS MESSAGE BADEG ON COUNT ": {
+      "main": [
+        [
+          {
+            "node": " SWITCHES BASED ON GMAILS ARE THERE OR NOT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " SWITCHES BASED ON GMAILS ARE THERE OR NOT": {
+      "main": [
+        [
+          {
+            "node": " Gmail 1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": " Gmail 2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gmail 3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gmail 4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": " SEND NO GMAILS MESSAGE",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " EDITS GMAILS": {
+      "main": [
+        [
+          {
+            "node": " SEND ALL GMAILS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " EDITS GMAILS3": {
+      "main": [
+        [
+          {
+            "node": " SEND ALL GMAILS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " EDITS GMAILS1": {
+      "main": [
+        [
+          {
+            "node": " SEND ALL GMAILS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    " EDITS GMAILS2": {
+      "main": [
+        [
+          {
+            "node": " SEND ALL GMAILS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": " COUNTS NO.OF GMAILS2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "COUNTS NO.OF GMAILS",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": " COUNTS NO.OF GMAILS1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": " COUNTS NO.OF GMAILS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "REPLACE_ME",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "REPLACE_ME"
+  },
+  "id": "REPLACE_ME",
+  "tags": []
+}
